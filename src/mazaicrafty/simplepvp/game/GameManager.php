@@ -13,6 +13,7 @@ use mazaicrafty\simplepvp\game\WaitTimeTask;
 class GameManager{
 
     public static $is_started = false;
+
     private $server;
 
     public function __construct(Server $server){
@@ -26,7 +27,10 @@ class GameManager{
 
     public static function finishGame(){
         GameManager::$is_started = false;
-        $this->getServer()->getScheduler()->scheduleRepeatingTask(new WaitTimeTask(Main::getInstance()), 20);
+        WaitTimeTask::$is_entered = true;
+        unset(TeamManager::$teams);
+        unset(TeamManager::$players);
+        $this->server->getScheduler()->scheduleRepeatingTask(new WaitTimeTask(Main::getInstance()), 20*5);
         $this->server->broadcastMessage("エントリーの募集が開始されました");
     }
 }

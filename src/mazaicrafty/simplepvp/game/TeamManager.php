@@ -17,13 +17,15 @@ class TeamManager{
     const RED = 0;
     const BLUE = 1;
 
-    public static $team_colors;
-    public static $players;
+    public static $teams = [];
+    public static $players = [];
+
+    private $server;
 
     public function __construct(Server $server){
         $this->server = $server;
-        TeamManager::$team_colors[] = TeamManager::RED;
-        TeamManager::$team_colors[] = TeamManager::BLUE;
+        TeamManager::$teams[TeamManager::RED];
+        TeamManager::$teams[TeamManager::BLUE];
     }
 
     public static function registerPlayer(Player $player){
