@@ -1,0 +1,13 @@
+name: SimplePVP
+main: mazaicrafty\simplepvp\Main
+api:
+ - 3.0.0-ALPHA12
+ - 3.0.0
+version: 1.0
+load: POSTWORLD
+author: MazaiCrafty
+webisite: https://github.com/MazaiCrafty/SimplePVP
+commands:
+ testpvp:
+  description: "SimplePVP"
+  usage: "/testpvp"
